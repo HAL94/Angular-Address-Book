@@ -1,0 +1,23 @@
+#contact-list
+{
+  float:none;
+  margin: 5% auto;
+}
+
+#add-btn
+{
+  text-align: center;
+  padding: 2.5%;
+  color: blue;
+}
+#add-btn:hover i
+{
+  color: lightblue;
+  transition: 0.2s;
+}
+
+.list-group-item
+{
+  position: relative;
+  top: 4px;
+}

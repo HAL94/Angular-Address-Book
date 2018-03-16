@@ -1,0 +1,166 @@
+<div class="container">
+    <form class="row" *ngIf="contactForm" [formGroup]="contactForm" (ngSubmit)="onSubmit()" >
+        <div class="col-xs-12 col-md-10 col-lg-6 col-lg-offset-3 col-md-offset-1">
+            <mat-card #card class="background" id="backgroundImg" [style.background-image]="getImageUrl() | safeStyle">
+                <mat-card-header>
+                    <i class="fa fa-arrow-left fa-2x" (click)="onBack()" aria-hidden="true"></i>
+                    <i class="fa fa-pencil fa-half right-btn" (click)="onEdit()" aria-hidden="true" *ngIf="!editMode"></i>
+                    <button type="submit" class="right-btn transparent-btn" *ngIf="editMode" [disabled]="!contactForm.valid">
+                      <i class="fa fa-check fa-2x" aria-hidden="true"
+                         [style.color]="contactForm.valid ? '#fafafa' : '#7f91fa'"
+                         [style.cursor]="contactForm.valid ? 'pointer' : 'auto'">
+                      </i>
+                    </button>
+                </mat-card-header>
+
+                <mat-card-title>{{contact.name | FirstLetterCapitalizor}}</mat-card-title>
+                <i *ngIf="editMode" (click)="onIconClick()" title="image upload" class="fa fa-camera-retro fa-2x" aria-hidden="true"></i>
+                <input #file type="file" id="profile-img" (change)="selectedFile = file.files[0]" accept=".jpeg, .jpg, .png, .gif" style="display: none;" />
+           </mat-card>
+        </div>
+
+        <div class="col-xs-12 col-md-10 col-lg-6 col-lg-offset-3 col-md-offset-1" *ngIf="!editMode">
+            <mat-card class="card-content">
+                <i class="fa fa-mobile fa-2x" aria-hidden="true"> </i>
+                <div>{{contact.mobile}}</div>
+            </mat-card>
+            <hr>
+            <mat-card class="card-content">
+                <i class="fa fa-envelope fa-half" aria-hidden="true"></i>
+                <div>{{contact.email}}</div>
+            </mat-card>
+            <hr>
+            <mat-card class="card-content">
+                <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+                <div>{{contact.address}}</div>
+            </mat-card>
+            <hr>
+            <mat-card class="card-content">
+                <i class="fa fa-building fa-half" aria-hidden="true"></i>
+                <div>{{ contact.company}}</div>
+            </mat-card>
+            <hr>
+            <mat-card class="card-content">
+                <i class="fa fa-phone fa-half" aria-hidden="true"></i>
+                <div>{{ contact.phone}}</div>
+            </mat-card>
+            <hr>
+            <mat-card class="card-content">
+                <i class="fa fa-globe fa-half" aria-hidden="true"></i>
+                <div>{{ contact.website}}</div>
+            </mat-card>
+            <hr>
+            <mat-card class="card-content">
+                <i class="fa fa-birthday-cake fa-half" aria-hidden="true"></i>
+                <div>{{ contact.birthday }}</div>
+            </mat-card>
+            <hr>
+            <mat-card class="card-content">
+                <mat-card-title>Title</mat-card-title>
+                <div>{{ contact.title}}</div>
+            </mat-card>
+            <hr>
+            <mat-card class="card-content">
+                <mat-card-title>Nickname</mat-card-title>
+                <div>{{ contact.nickname}}</div>
+            </mat-card>
+            <hr>
+            <mat-card class="card-content">
+                <mat-card-title>Relationship</mat-card-title>
+                <div>{{ contact.relationship}}</div>
+            </mat-card>
+        </div>
+
+        <div *ngIf="editMode" class="col-xs-12 col-md-10 col-lg-6 col-lg-offset-3 col-md-offset-1">
+          <mat-card class="card-content">
+            <mat-card-title>Name</mat-card-title>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Name" formControlName="name" type="text"  name="name" >
+              <mat-error *ngIf="contactForm.controls['name'].hasError('required')">
+                Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+
+          </mat-card>
+          <hr>
+          <mat-card class="card-content">
+            <i class="fa fa-mobile fa-2x" aria-hidden="true"> </i>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Mobile" type="text"  formControlName="mobile" name="mobile" >
+              <mat-error *ngIf="contactForm.controls['mobile'].hasError('required')">
+                Mobile is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </mat-card>
+          <hr>
+          <mat-card class="card-content">
+            <i class="fa fa-envelope fa-half" aria-hidden="true"></i>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Email" type="email" formControlName="email"  name="email" >
+              <mat-error *ngIf="contactForm.controls['email'].hasError('pattern') && !contactForm.controls['email'].pristine">
+                Email is <strong>Invalid</strong>
+              </mat-error>
+              <mat-error *ngIf="contactForm.controls['email'].hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </mat-card>
+          <hr>
+          <mat-card class="card-content">
+            <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Address" type="text" formControlName="address" name="address">
+            </mat-form-field>
+          </mat-card>
+          <hr>
+          <mat-card class="card-content">
+            <i class="fa fa-building fa-half" aria-hidden="true"></i>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Company" type="text" formControlName="company" name="company">
+            </mat-form-field>
+          </mat-card>
+          <hr>
+          <mat-card class="card-content">
+            <i class="fa fa-phone fa-half" aria-hidden="true"></i>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Phone" type="tel" formControlName="phone" name="phone">
+            </mat-form-field>
+          </mat-card>
+          <hr>
+          <mat-card class="card-content">
+            <i class="fa fa-globe fa-half" aria-hidden="true"></i>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Website" type="text" formControlName="website" name="website">
+            </mat-form-field>
+          </mat-card>
+          <hr>
+          <mat-card class="card-content">
+            <i class="fa fa-birthday-cake fa-half" aria-hidden="true"></i>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Birthday" type="date" formControlName="birthday" name="birthday">
+            </mat-form-field>
+          </mat-card>
+          <hr>
+          <mat-card class="card-content">
+            <mat-card-title>Title</mat-card-title>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Title" type="text" formControlName="title" name="title">
+            </mat-form-field>
+          </mat-card>
+          <hr>
+          <mat-card class="card-content">
+            <mat-card-title>Nickname</mat-card-title>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Nickname" type="text" formControlName="nickname" name="nickname">
+            </mat-form-field>
+          </mat-card>
+          <hr>
+          <mat-card class="card-content">
+            <mat-card-title>Relationship</mat-card-title>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Relationship" type="text" formControlName="relationship" name="relationship">
+            </mat-form-field>
+          </mat-card>
+        </div>
+    </form>
+</div>

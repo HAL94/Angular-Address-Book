@@ -1,0 +1,26 @@
+
+
+.container-top-offset
+{
+  margin-top: 20px;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+#close-btn
+{
+  float:right;
+  cursor: pointer;
+}
+
+#close-btn:hover
+{
+  color: #E0F7FA;
+  transition: 0.2s;
+}

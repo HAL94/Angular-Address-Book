@@ -1,0 +1,55 @@
+<div class="container container-top-offset">
+  <form class="col-xs-offset-3" #contactForm="ngForm">
+      <i id="close-btn" class="fa fa-times fa-2x" aria-hidden="true" (click)="close()"></i>
+      <div class="row">
+        <div class="form-group col-xs-8">
+            <label for="name">Name</label>
+            <input type="text" [(ngModel)]="contactDummy.name"
+                #name="ngModel" placeholder="Name"
+                class="form-control" name="name" id="name" required>
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                <p>Name is required</p>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-8">
+            <label for="mobile">Mobile</label>
+            <input type="text" [(ngModel)]="contactDummy.mobile"
+             name="mobile" class="form-control" placeholder="000XXXXX"
+            id="mobile" #mobile="ngModel" required>
+            <div [hidden]="mobile.valid || mobile.pristine" class="alert alert-danger">
+                <p>Mobile is required</p>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-8">
+            <label for="email">Email</label>
+            <input type="email" [(ngModel)]="contactDummy.email"
+            placeholder="example@email.com"
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+            name="email" class="form-control" #email="ngModel" id="email" required>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)">
+              <div *ngIf="email.errors.required" class="alert alert-danger">
+                  <p>Email is required</p>
+              </div>
+              <div *ngIf="email.errors.pattern" class="alert alert-danger">
+                  <p>Email Invalid</p>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-8">
+            <label for="address">Address</label>
+            <input type="text" [(ngModel)]="contactDummy.address"
+            placeholder="Address"
+             name="address" class="form-control" id="address">
+        </div>
+      </div>
+      <mat-dialog-actions>
+          <button mat-button [mat-dialog-close]="contactDummy" class="btn btn-success" [disabled]="!contactForm.form.valid">Save</button>
+      </mat-dialog-actions>
+  </form>
+</div>

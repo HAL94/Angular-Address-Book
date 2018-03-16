@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-5 col-xs-12" id="contact-list">
+            <a
+              routerLink="./contact-dialog"
+              [queryParams]="{dialog_mode: 'add'}"
+              class="list-group-item"
+              id="add-btn"
+            >
+              <i class="fa fa-plus fa-2x" title="add contact" aria-hidden="true"></i>
+            </a>
+
+
+            <app-contact-item
+              *ngFor="let contactItem of contactList"
+              [contact] = "contactItem"
+            >
+            </app-contact-item>
+
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,26 @@
+<a class="list-group-item clearfix"
+  id="contact-item"
+  (click)="onNavigateToDetails(); $event.stopPropagation()"
+
+>
+
+      <div class="pull-left">
+        <h4 class="list-group-item-heading" innerHTML="{{ contact.name | highlightPipe : query}}"></h4>
+        <p class="list-group-item-text" innerHTML="{{ contact.mobile | highlightPipe : query}}"></p>
+        <p class="list-group-item-text" innerHTML="{{ contact.email | highlightPipe : query}}"></p>
+      </div>
+
+      <div class="pull-right" >
+          <i class="fa fa-trash-o" aria-hidden="true"
+             title="delete contact"
+             (click)="onDeleteContact(); $event.stopPropagation()"
+             style="padding-right:7px;">
+          </i>
+
+          <i class="fa fa-pencil-square-o"
+             aria-hidden="true"
+             (click)="onNavigateToFormModal(); $event.stopPropagation()"
+             title="edit contact">
+          </i>
+      </div>
+</a>

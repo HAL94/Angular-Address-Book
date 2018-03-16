@@ -1,0 +1,119 @@
+body
+{
+  background-color: #f5eded;
+}
+.container
+{
+  margin: 5% auto;
+}
+
+.background
+{
+  background-color: #0084ff;
+  /*background-image: url('../../assets/default-profile.png');*/
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 300px;
+  /*box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);*/
+}
+
+.background mat-card-title
+{
+  position: absolute;
+  bottom: 0;
+  color: #fafafa;
+  font-family: 'Roboto', sans-serif;
+}
+
+.mat-card
+{
+  padding: 35px;
+}
+
+.background mat-card-header
+{
+  display: block;
+}
+
+.card-content
+{
+  text-align: center;
+  margin-top: 2%;
+  height: 100px;
+}
+
+
+.card-content i, .card-content mat-card-title
+{
+  color: #0084ff;
+  position: absolute;
+  left: 3%;
+  top: 10%;
+}
+
+.card-content button i {
+  position: inherit;
+}
+
+.card-content mat-card-title
+{
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.fa.fa-arrow-left, .fa.fa-pencil, .fa.fa-check
+{
+  cursor: pointer;
+  color: #fafafa;
+}
+
+.right-btn
+{
+  float: right;
+  margin-top: 6px;
+}
+
+.transparent-btn
+{
+  background-color: transparent;
+  border: none;
+  overflow: hidden;
+}
+
+.fa.fa-arrow-left:hover, .fa.fa-pencil:hover, .fa.fa-check:hover, .fa.fa-map:hover
+{
+  color: #7f91fa;
+  transition: 0.3s;
+}
+
+.fa.fa-camera-retro {
+  position: absolute;
+  bottom: 14px;
+  right: 8%;
+  cursor: pointer;
+}
+
+.fa.fa-camera-retro:hover
+{
+  color: #D0CAED;
+  transition: 0.5s;
+}
+
+
+.fa-half
+{
+  font-size: 1.5em;
+}
+
+.full-width
+{
+  width:75%;
+}
+
+.invalid
+{
+  color: #7f91fa;
+  cursor: auto;
+}
+

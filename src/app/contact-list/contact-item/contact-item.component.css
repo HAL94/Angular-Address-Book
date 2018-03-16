@@ -1,0 +1,23 @@
+a {
+  cursor: pointer;
+}
+
+#contact-item
+{
+  padding: 2.5%;
+  height: 115px;
+}
+
+.pull-right>.fa.fa-trash-o:hover
+{
+  color: red;
+  font-size: 200%;
+  transition: 0.3s;
+}
+
+.pull-right>.fa.fa-pencil-square-o:hover
+{
+  color: #8BC34A;
+  font-size: 200%;
+  transition: 0.3s;
+}
